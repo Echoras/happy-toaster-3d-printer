@@ -271,3 +271,94 @@ E0 → Extruder motor
 
 - Dont expect the wiring to be clean the first try. Once everything is connected, use cable sleeves and zip ties to manage your wiring. Keep motor and signal cables away from power lines to reduce interference. Don’t power on yet—firmware setup and calibration come next.
 
+---
+
+Step 3: Flashing firmware to arduino
+
+<br/><br/>Once the wiring is complete and verified, the next step is to flash the custom Marlin firmware onto the Arduino Mega 2560 through the RAMPS 1.4 board.
+This firmware defines how the printer moves, heats, homes, and communicates. Below are the major configuration details used for the Happy Toaster 3D Printer.
+
+<h3>⚙️ General Configuration</h3>
+<table>
+<tr><td><strong>Machine Name</strong></td><td>Happy Toaster</td></tr>
+<tr><td><strong>Firmware Author</strong></td><td>Toaster Erection Co.</td></tr>
+<tr><td><strong>Mainboard</strong></td><td>RAMPS 1.4 (EFB layout)</td></tr>
+<tr><td><strong>Baudrate</strong></td><td>250000</td></tr>
+<tr><td><strong>Bootscreen</strong></td><td>Custom + Marlin</td></tr>
+</table>
+
+<hr>
+
+<h3>🛠 Stepper &amp; Mechanics</h3>
+<table>
+<tr><td><strong>Driver Type</strong></td><td>A4988 (on all axes)</td></tr>
+<tr><td><strong>Dual Z Motors</strong></td><td>Enabled (<code>Z2_DRIVER_TYPE</code>)</td></tr>
+<tr><td><strong>Axis Steps/mm</strong></td><td>X: 83.7 &nbsp;&nbsp; Y: 80.4 &nbsp;&nbsp; Z: 400 &nbsp;&nbsp; E: 95</td></tr>
+<tr><td><strong>Max Feedrate (mm/s)</strong></td><td>X/Y: 300 &nbsp;&nbsp; Z: 5 &nbsp;&nbsp; E: 25</td></tr>
+<tr><td><strong>Max Acceleration (mm/s²)</strong></td><td>X/Y: 1000 &nbsp;&nbsp; Z: 100 &nbsp;&nbsp; E: 10000</td></tr>
+<tr><td><strong>Build Volume</strong></td><td>220 × 220 × 230 mm</td></tr>
+</table>
+
+<hr>
+
+<h3>🧊 Temperature &amp; Cooling</h3>
+<table>
+<tr><td><strong>Hotend Sensor</strong></td><td>EPCOS 100K (type 1)</td></tr>
+<tr><td><strong>Bed Sensor</strong></td><td>EPCOS 100K (type 1)</td></tr>
+<tr><td><strong>Thermal Protection</strong></td><td>Enabled (hotend &amp; bed)</td></tr>
+<tr><td><strong>Auto Temperature Mode</strong></td><td>Enabled (<code>AUTOTEMP</code>)</td></tr>
+<tr><td><strong>E0 Auto Fan</strong></td><td>Pin 1, activates at 50 °C</td></tr>
+<tr><td><strong>Fan Kickstart</strong></td><td>100 ms</td></tr>
+</table>
+
+<hr>
+
+<h3>🏠 Homing &amp; Bed Leveling</h3>
+<table>
+<tr><td><strong>Z Safe Homing</strong></td><td>Enabled (center of bed)</td></tr>
+<tr><td><strong>Auto Bed Leveling</strong></td><td>Bilinear</td></tr>
+<tr><td><strong>Software Endstops</strong></td><td>Enabled</td></tr>
+<tr><td><strong>Endstop Interrupts</strong></td><td>Enabled</td></tr>
+<tr><td><strong>Endstop Logic</strong></td><td>Inverted (active LOW)</td></tr>
+</table>
+
+<hr>
+
+<h3>🧪 Additional Features</h3>
+<table>
+<tr><td><strong>Linear Advance</strong></td><td>Enabled (<code>K = 0.4</code>)</td></tr>
+<tr><td><strong>Arc Support</strong></td><td>Enabled (G2/G3)</td></tr>
+<tr><td><strong>Custom Boot Screen</strong></td><td>Enabled</td></tr>
+<tr><td><strong>EEPROM Storage</strong></td><td>Enabled (saves calibration data)</td></tr>
+</table>
+
+<hr>
+
+<h3>🧩 Flashing Instructions</h3>
+
+<ol>
+<li>Connect the <strong>Arduino Mega 2560</strong> to your computer via USB.</li>
+<li>Open the <code>Marlin.ino</code> file in the Arduino IDE (or use <strong>PlatformIO</strong> in VS Code).</li>
+<li>Select the correct board and port:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;• Tools → Board → <em>Arduino Mega or Mega 2560</em><br>
+&nbsp;&nbsp;&nbsp;&nbsp;• Tools → Port → (your COM port)</li>
+<li>Click the <strong>Upload</strong> button to flash the firmware.</li>
+<li>Once complete, reboot the printer and verify the boot screen reads:<br>
+<p align="center"><code>Happy Toaster – Toaster Erection Co.</code></p></li>
+</ol>
+
+<p align="center">
+The custom <strong>Marlin Firmware</strong> for the <em>Happy Toaster</em> 3D Printer is located in:<br/><br/>
+<code>Marlin-2.1.2/</code>
+</p>
+
+<p align="center">
+Inside, you'll find the complete configuration used for this build.<br/>
+It’s ready to compile and flash using the <strong>Arduino IDE</strong> or <strong>PlatformIO</strong> on the <strong>Arduino Mega 2560 + RAMPS 1.4</strong> board.
+</p>
+
+<p align="center"><em>After successful flashing, your machine should display the custom boot screen and all configured settings can be verified from the LCD under <strong>Control → Motion</strong>.</em></p>
+
+
+## Project Final
+<p align="center"> <img src="images/Screenshot 2025-11-01 153037.png" width="1000"><br>  </p>
