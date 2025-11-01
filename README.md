@@ -53,14 +53,17 @@ Thanks to the open-source 3D printing community — especially Marlin devs and c
 ---
 
 ### Boards & Electronics
-- 4 × Cloudray NEMA17 stepper motors (0.42 N·m torque, 1.7 A, 2-phase, 40 mm)  
+- 5 × Cloudray NEMA17 stepper motors (0.42 N·m torque, 1.7 A, 2-phase, 40 mm)  
 - 1 × HT-100K NTC thermistor (100K Ω)  
 - 1 × 30A heated bed MOSFET expansion module (with cables, compatible with Anet A8/A6/A2/RAMPS 1.4)  
 - 1 × MZMW LRS350/LRS400 switching power supply (400 W, 12 V)  
 - 1 × MK3/MK2 heated bed (220×220×3.0 mm, 12 V)  
 - 1 × Arduino Mega 2560 R3  
 - 1 × RAMPS 1.4 controller board  
-- 5 × A4988 stepper driver modules  
+- 5 × A4988 stepper driver modules
+- 1 x M8 Inductive Proximity Sensor Z Probe
+- 2 x Switch Endstop
+- 1x LCD Display for Ramps Board
 
 ---
 
@@ -180,7 +183,8 @@ Step 1 — Frame Setup
 <br/>1x Nema17 Stepper Motor Holder Bracket Frame
 <br/>1x Bowden Extruder (mounted onto the frame)
 <br/>1x PTFE Bowden Tube (should come with bowden extruder)
-<br/>1x J6 Hotend assembly (heatsink, heatbreak, nozzle) <br/>
+<br/>1x J6 Hotend assembly (heatsink, heatbreak, nozzle) 
+<br/>M8 Inductive Proximity Sensor Z Probe<br/>
 
 - Mount the Bowden extruder assembly on the right side of the upper 2040 frame using drop-in T-nuts and screws.
 - Attach the NEMA17 stepper motor onto the extruder bracket and secure it firmly so it doesn’t flex during retraction.
@@ -189,6 +193,7 @@ Step 1 — Frame Setup
 - Place the hotend assembly onto the X-axis carriage plate and secure it using M3 screws.
 - Plug in the cooling fan onto the hotend side, ensuring airflow faces the heatsink (not the nozzle).
 - Double-check alignment between the Bowden tube and the hotend so filament feeds straight and smoothly.
+- IMPORTANT NOTE: In the diagram it doesnt show but there is a Z Probe **(M8 Inductive Proximity Sensor Z Probe)** that is hooked to a washer and the washer is held in place with the X Carriage by a screw
 
 <p align="center"> <img src="images/frotntfiew hotend n extruder w bed.png" width="400"><br> <em>Base Frame, bed Mechanism *FRONT VIEW*</em> </p>
 1x NEMA17 Stepper Motor (for Y-Axis)
@@ -212,6 +217,57 @@ Step 1 — Frame Setup
 - Finally, place a spacer block or printed riser under the 2020V Y-axis frame to lift it slightly and make room for electronics wiring underneath.
 
   <br/><br/>NOW, so far it should looks somewhat like this:
-<p align="center"> <img src="Printerirl.jpg" width="400"><br> </p>
-<p align="center"> <img src="HOTEND.jpg" width="400"><br> </p>
-<p align="center"> <img src="bowdenextruder.jpg" width="400"><br> </p>
+<p align="center">
+  <img src="images/frame finished almost.jpg" width="300">
+  <img src="images/HOTEND.jpg" width="300">
+  <img src="images/bowdenextruder.jpg" width="300">
+</p>
+
+---
+
+Part 2: Electronics, boards, & wiring
+
+
+<p align="center">
+  <img src="images/Wiring.png" width="300">
+  <img src="images/Screenshot 2023-06-19 102715.png" width="500"> 
+</p>
+
+
+1× Arduino Mega 2560 R3
+<br/>1× RAMPS 1.4 Controller Board
+<br/>5× A4988 Stepper Driver Modules
+<br/>5× NEMA17 Stepper Motors
+<br/>1× MZMW LRS350/LRS400 12V 400W Power Supply
+<br/>1× MK3/MK2 Heated Bed (220×220×3.0 mm, 12 V)
+<br/>1× 30A Heated Bed MOSFET Expansion Module (with cables)
+<br/>1× HT-100K NTC Thermistor (100K Ω)
+<br/>1× M8 Inductive Proximity Sensor (Z-Probe)
+<br/>2× Mechanical Endstop Switches
+<br/>1× LCD Display Screen (with EXP1/EXP2 cables)
+<br/>Assorted: 12 AWG wire (for power), Dupont jumpers, heat shrink, zip ties, cable sleeves for clean routing
+
+- Begin by mounting the Arduino Mega 2560 beneath the frame, leaving room for access to the USB and power ports. Attach the RAMPS 1.4 board on top of it.
+- Insert the five A4988 stepper drivers into their sockets on the RAMPS board, ensuring correct orientation (reference the small “EN” and “DIR” labels).
+- Connect each NEMA17 motor to its respective axis output on the RAMPS board:
+
+X-Axis → X Motor
+
+Y-Axis → Y Motor (bed carriage motor)
+
+Z-Axis → both Z motors (connect in parallel)
+
+E0 → Extruder motor
+
+- Wire the endstops to the X-min and Y-min connectors on the RAMPS board, and the inductive Z-probe sensor to the Z-min input (the firmware will later handle the probing logic).
+- For the hotend: connect the HT-100K thermistor to T0 and the hotend heater cartridge to D10.
+- The heated bed connects through the MOSFET module to offload current:
+- RAMPS D8 output → MOSFET signal input
+- Power Supply 12V → MOSFET power input → Heated bed
+- Attach the LCD Display using the EXP1 and EXP2 ribbon cables; it should power up alongside the RAMPS board.
+- Finally, connect the 12V power supply to both the RAMPS and MOSFET modules, using 12 AWG wire for main power lines. Double-check polarity before powering up.
+
+<p align="center"> <img src="images/IMG_7072.jpg" width="400"><br> <em>RAMPS 1.4 Wiring — *Hotend, Bed, Motors & Endstops*</em> </p>
+
+- Dont expect the wiring to be clean the first try. Once everything is connected, use cable sleeves and zip ties to manage your wiring. Keep motor and signal cables away from power lines to reduce interference. Don’t power on yet—firmware setup and calibration come next.
+
