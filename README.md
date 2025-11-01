@@ -359,6 +359,64 @@ It’s ready to compile and flash using the <strong>Arduino IDE</strong> or <str
 
 <p align="center"><em>After successful flashing, your machine should display the custom boot screen and all configured settings can be verified from the LCD under <strong>Control → Motion</strong>.</em></p>
 
+## 🏁 Final Steps: Testing, Calibration & First Print
+
+Before you start printing, follow these essential checks to ensure your **Happy Toaster** runs safely and accurately.
+
+### 1. Power-On & Initial Checks
+1. Verify all wiring connections: stepper motors, endstops, thermistors, heaters, and display.  
+2. Ensure the MOSFET module is wired correctly to the heated bed and power supply.  
+3. Connect the Arduino Mega 2560 to your computer via USB and power the printer.  
+4. Confirm the LCD display powers on and shows the custom **Happy Toaster** boot screen.  
+
+> ⚠️ **Safety tip:** Never touch moving parts, hotend, or heated bed while powered. Always wear safety glasses.
+
+---
+
+### 2. Homing & Axis Movement
+1. From the LCD menu, select **Control → Motion → Auto Home**.  
+2. Observe each axis moving smoothly and stopping at the endstops.  
+3. Move each axis manually using the LCD controls to ensure no binding occurs.  
+4. Adjust belts or wheel tension if any axis feels rough or misaligned.
+
+---
+
+### 3. Z-Probe & Bed Leveling
+1. Check that the **M8 inductive Z-probe** is mounted securely and triggers when the bed approaches.  
+2. Perform **Auto Bed Leveling (Bilinear)** from the LCD menu:
+   - The probe will measure points across the bed.  
+   - The firmware uses these measurements to compensate during printing.  
+3. Adjust the Z-offset so the nozzle just touches a piece of paper on the bed.  
+
+> Tip: Recheck after a few test prints — small tweaks improve first-layer adhesion dramatically.
+
+---
+
+### 4. Heating Test
+1. Preheat the **hotend** (e.g., 200 °C) and **bed** (e.g., 60 °C) using the LCD menu.  
+2. Ensure thermistors read temperatures correctly and heating is stable.  
+3. Check for unusual smells, sparks, or noises — stop immediately if anything seems wrong.
+
+---
+
+### 5. First Test Print
+1. Load filament into the Bowden extruder.  
+2. Use a small calibration object, like a **20 mm cube** or **benchy**, to verify movement, extrusion, and leveling.  
+3. Observe the print for:
+   - Correct first layer adhesion  
+   - Smooth extrusion  
+   - Accurate dimensions (adjust steps/mm if needed)  
+
+> Tip: Start at slow speed (~30 mm/s) for the first print to reduce chances of failure.
+
+---
+
+### 6. Maintenance & Adjustments
+- Tighten screws, belts, and couplers after a few prints.  
+- Keep the V-slot wheels and rods clean for smooth motion.  
+- Store extra T-nuts, screws, and zip ties — they’re always handy for mods.  
+
+With these final checks, your **Happy Toaster** is ready for full-scale printing! 🎉
 
 ## Project Final
 <p align="center"> <img src="images/Screenshot 2025-11-01 153037.png" width="1000"><br>  </p>
