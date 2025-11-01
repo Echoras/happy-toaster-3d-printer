@@ -1,4 +1,9 @@
 # happy-toaster-3d-printer
+<p align="center">
+  <img src="images/Printerirl.jpg" width="400"> <br/>
+  <img src="images/bitbap-clean.jpg" width="200">
+</p>
+</p>
 A personal 3D printer build designed from scratch, featuring custom marlin firmware and hardware tweaks. 
 
 Where I live, 3D printers are imported and usually cost far more than most people can justify.  
@@ -43,7 +48,7 @@ Thanks to the open-source 3D printing community — especially Marlin devs and c
 - 1 × All-metal Bowden extruder feeder kit (with PTFE tube)  
 - 10 m GT2 open timing belt, 6 mm width  
 - 5 × GT2 20-tooth idler pulleys (with teeth)  
-- 3 × GT2 20-tooth idler pulleys (without teeth)  
+- 3 × GT2 idler pulleys (without teeth)  
 
 ---
 
@@ -108,5 +113,48 @@ The configuration includes:
 - Motor direction and steps/mm tuning  
 - Endstop and thermistor setup  
 
+---
 
+
+Step 1 — Frame Setup
+<p align="center"> <img src="images/Base1shapetopview.png" width="400"><br> <em>Base Frame *top view*</em> </p>
+
+3x 2020v 300mm Frame
+<br/>2x 2020v 400mm Frame
+<br/>8x Frame connectors
+
+- Begin with the base 2020 extrusions and corner connectors.
+- Ensure perfect 90° alignment using a square or angle bracket.
+
+
+<p align="center"> <img src="images/Base2frontview.png" width="400"><br> <em>Base Frame *front view*</em> </p
+
+3x 2040V Frame 400mm (1x for X frame, 2x for vertical Z frame)
+<br/>1x 2020v Frame 300mm
+<br/>2x Frame Connectors
+<br/>2x Internal Frame Connectors
+<br/>4x Wheels
+
+- Start getting the 2040 extrusions and work you way up to make the frame the X axis frame will hold onto, along with the bowden extruder and later on hang up the 3d printer screen.
+- Use the slightly larger 2040v (400mm) to place 4 wheels that will bite onto the vertical 2040v frame
+- after loading the x axis frame with wheels onto the vertical frame, connect a top piece so that the x axis frame is set inside.
+
+                                                                                                
+<p align="center"> <img src="images/Z axis frames w belt.png" width="400"><br> <em>Base Frame w/ X Axis mechanism *back view*</em> </p>
+1x Cloudray NEMA17 stepper motors
+<br/>2x GT2 20-tooth idler pulleys
+<br/>2x GT2 idler pulleys no teeth
+<br/>10 m GT2 open timing belt, 6 mm width  
+<br/>4x wheels
+<br/>2x Zip ties
+<br/>some drop in tee nuts and screws for the following frames:
+<br/>NEMA17 stepper motor mounting bracket
+<br/>Open-source idler pulley plate bracket
+<br/>Funssor HE3D/Tarantula I3 aluminum X-axis carriage plate (MGN12H upgrade, 3 mm thick)  
+<br/><br/>
+
+- For the hotend x-axis carriage plate start with putting on the four wheels and place onto the x frame accordingly
+- Place the nema 17 motor onto its respected plate, screw onto the motor a toothed gear and for one of the screws on the top left use an extra long screw to place a Idle pulley no teeth (refer to left side of diagram where the motor is) then place onto either side of the x axis frame
+- on the other side place one toothed pulley and one smooth no teeth, thats so far your base for running a timing belt onto the x axis frame
+- Using zip ties, lock the timing belt onto either side of the tarantula hotend x carriage plate and then run the timing belt around the frame make sure it is latched onto the idler pulleys and also make sure it is run through the middle of the 2040V FRAME in the middle (there should be a little space in the middle of the frame where it can go through.
 
