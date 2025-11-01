@@ -127,7 +127,7 @@ Step 1 — Frame Setup
 - Ensure perfect 90° alignment using a square or angle bracket.
 
 
-<p align="center"> <img src="images/Base2frontview.png" width="400"><br> <em>Base Frame *front view*</em> </p
+<p align="center"> <img src="images/Base2frontview.png" width="400"><br> <em>Base Frame *FRONT VIEW*</em> </p
 
 3x 2040V Frame 400mm (1x for X frame, 2x for vertical Z frame)
 <br/>1x 2020v Frame 300mm
@@ -140,8 +140,8 @@ Step 1 — Frame Setup
 - after loading the x axis frame with wheels onto the vertical frame, connect a top piece so that the x axis frame is set inside.
 
                                                                                                 
-<p align="center"> <img src="images/Z axis frames w belt.png" width="400"><br> <em>Base Frame w/ X Axis mechanism *back view*</em> </p>
-1x Cloudray NEMA17 stepper motors
+<p align="center"> <img src="images/Z axis frames w belt.png" width="400"><br> <em>Base Frame w/ X Axis mechanism *BACK VIEW*</em> </p>
+1x NEMA17 stepper motors
 <br/>2x GT2 20-tooth idler pulleys
 <br/>2x GT2 idler pulleys no teeth
 <br/>10 m GT2 open timing belt, 6 mm width  
@@ -158,3 +158,60 @@ Step 1 — Frame Setup
 - on the other side place one toothed pulley and one smooth no teeth, thats so far your base for running a timing belt onto the x axis frame
 - Using zip ties, lock the timing belt onto either side of the tarantula hotend x carriage plate and then run the timing belt around the frame make sure it is latched onto the idler pulleys and also make sure it is run through the middle of the 2040V FRAME in the middle (there should be a little space in the middle of the frame where it can go through.
 
+<p align="center"> <img src="images/motors n rods set.png" width="400"><br> <em>Base Frame, Z rod Mechanism *BACK VIEW*</em> </p>
+
+2x NEMA17 Stepper Motors
+<br/>2x Z Axis Stepper Mounts (aluminum bracket type)
+<br/>2x Threaded T8 Lead Screws, 8mm pitch, 400mm length
+<br/>2x Flexible Couplers for T8 rods
+<br/>2x Z Rod Bearing Holders (for top frame)
+<br/> **I MUST MENTION, i had no way of finding a frame that works with the BRASS NUT for the Z rods, so i cut out a piece of wood and anchored the BRASS NUT TO IT to place on the X frame (the one with wheels)**
+
+- Mount each NEMA17 motor to its aluminum bracket using M3 screws.
+- Secure both motor mounts at the base of the vertical 2040V extrusions; make sure they sit flush and parallel.
+- Insert each T8 lead screw into its flexible coupler and tighten the grub screws evenly (leave a small gap between shafts to prevent stress).
+- Attach the 2020V top frame and fit the Z-rod bearing holders at the top ends of the lead screws for stability.
+- Spin both lead screws manually — they should move smoothly and evenly with no binding.
+- Once aligned, apply a tiny drop of threadlocker to each coupler’s grub screw to prevent loosening over time.
+
+<p align="center"> <img src="images/frotntfiew hotend n extruder.png" width="400"><br> <em>Base Frame, Bowden Extruder and hotend *FRONT VIEW*</em> </p>
+
+1x NEMA17 Stepper Motors
+<br/>1x Nema17 Stepper Motor Holder Bracket Frame
+<br/>1x Bowden Extruder (mounted onto the frame)
+<br/>1x PTFE Bowden Tube (should come with bowden extruder)
+<br/>1x J6 Hotend assembly (heatsink, heatbreak, nozzle) <br/>
+
+- Mount the Bowden extruder assembly on the right side of the upper 2040 frame using drop-in T-nuts and screws.
+- Attach the NEMA17 stepper motor onto the extruder bracket and secure it firmly so it doesn’t flex during retraction.
+- Cut the PTFE tube to the appropriate length, ensuring smooth filament travel with minimal bend radius.
+- Connect one end of the tube into the extruder fitting and the other into the hotend’s pneumatic connector.
+- Place the hotend assembly onto the X-axis carriage plate and secure it using M3 screws.
+- Plug in the cooling fan onto the hotend side, ensuring airflow faces the heatsink (not the nozzle).
+- Double-check alignment between the Bowden tube and the hotend so filament feeds straight and smoothly.
+
+<p align="center"> <img src="images/frotntfiew hotend n extruder w bed.png" width="400"><br> <em>Base Frame, bed Mechanism *FRONT VIEW*</em> </p>
+1x NEMA17 Stepper Motor (for Y-Axis)
+<br/>1x NEMA17 Motor Mount Frame
+<br/>1x GT2 20-Tooth Pulley Gear (toothed)
+<br/>1x GT2 Smooth Idler Pulley (toothless)
+<br/>10 m GT2 Timing Belt, 6 mm width
+<br/>4x V-slot Wheels (for Bed Carriage)
+<br/>1x Aluminum Bed Carriage Frame
+<br/>1x 220×220 mm Heated Bed with Screws and Springs
+<br/>1x 2020V Aluminum Extrusion 400 mm
+<br/> 4x Frame Connectors
+<br/>1x Spacer Block / Riser (for electronics clearance under frame)
+<br/><br/>
+
+- Start by mounting the NEMA17 stepper motor onto the Y-axis motor bracket, attaching the toothed pulley gear to the motor shaft.
+- On the opposite end of the 2020V frame, mount the smooth idler pulley using a drop-in T-nut and screw — ensure it aligns perfectly with the motor pulley to prevent belt skew.
+- Attach the bed carriage frame onto the V-slot extrusion with four wheels, ensuring smooth linear motion along the Y-axis.
+- Mount the heated bed onto the carriage frame using the provided screws and springs for height leveling.
+- Run the GT2 timing belt through the pulley system — one end anchored to the bed carriage, looping around both pulleys, then tied back to the carriage with zip ties.
+- Finally, place a spacer block or printed riser under the 2020V Y-axis frame to lift it slightly and make room for electronics wiring underneath.
+
+  <br/><br/>NOW, so far it should looks somewhat like this:
+<p align="center"> <img src="Printerirl.jpg" width="400"><br> </p>
+<p align="center"> <img src="HOTEND.jpg" width="400"><br> </p>
+<p align="center"> <img src="bowdenextruder.jpg" width="400"><br> </p>
