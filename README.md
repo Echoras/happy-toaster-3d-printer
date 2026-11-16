@@ -281,7 +281,7 @@ This firmware defines how the printer moves, heats, homes, and communicates. Bel
 <h3>⚙️ General Configuration</h3>
 <table>
 <tr><td><strong>Machine Name</strong></td><td>Happy Toaster</td></tr>
-<tr><td><strong>Firmware Author</strong></td><td>Toaster Erection Co.</td></tr>
+<tr><td><strong>Firmware Author</strong></td><td>Eyad Mohamed</td></tr>
 <tr><td><strong>Mainboard</strong></td><td>RAMPS 1.4 (EFB layout)</td></tr>
 <tr><td><strong>Baudrate</strong></td><td>250000</td></tr>
 <tr><td><strong>Bootscreen</strong></td><td>Custom + Marlin</td></tr>
@@ -344,7 +344,7 @@ This firmware defines how the printer moves, heats, homes, and communicates. Bel
 &nbsp;&nbsp;&nbsp;&nbsp;• Tools → Port → (your COM port)</li>
 <li>Click the <strong>Upload</strong> button to flash the firmware.</li>
 <li>Once complete, reboot the printer and verify the boot screen reads:<br>
-<p align="center"><code>Happy Toaster – Toaster Erection Co.</code></p></li>
+<p align="center"><code>Happy Toaster</code></p></li>
 </ol>
 
 <p align="center">
