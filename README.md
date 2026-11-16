@@ -110,11 +110,13 @@ Steps include:
 ---
 
 ### 4. Custom Firmware (Marlin)
-Once the hardware is ready, flash the custom **Marlin CFW** provided in this repository.  
+Once the hardware is ready, flash Marlin 2.1.2 with the configuration files in [`firmware/`](firmware/).  
 The configuration includes:
-- Bed dimensions (adjustable for 220×220 or 300×300)  
-- Motor direction and steps/mm tuning  
-- Endstop and thermistor setup  
+- Calibrated steps/mm, tuned acceleration and jerk, and dual Z motors  
+- PID-tuned heated bed  
+- Inductive probe with bilinear auto bed leveling on a 310×310 mm bed  
+
+Every change from stock Marlin is listed in [`firmware/CHANGES.md`](firmware/CHANGES.md).
 
 ---
 
@@ -293,10 +295,10 @@ This firmware defines how the printer moves, heats, homes, and communicates. Bel
 <table>
 <tr><td><strong>Driver Type</strong></td><td>A4988 (on all axes)</td></tr>
 <tr><td><strong>Dual Z Motors</strong></td><td>Enabled (<code>Z2_DRIVER_TYPE</code>)</td></tr>
-<tr><td><strong>Axis Steps/mm</strong></td><td>X: 83.7 &nbsp;&nbsp; Y: 80.4 &nbsp;&nbsp; Z: 400 &nbsp;&nbsp; E: 95</td></tr>
-<tr><td><strong>Max Feedrate (mm/s)</strong></td><td>X/Y: 300 &nbsp;&nbsp; Z: 5 &nbsp;&nbsp; E: 25</td></tr>
+<tr><td><strong>Axis Steps/mm</strong></td><td>X: 83.7 &nbsp;&nbsp; Y: 80.4 &nbsp;&nbsp; Z: 400 &nbsp;&nbsp; E: 95.2</td></tr>
+<tr><td><strong>Max Feedrate (mm/s)</strong></td><td>X/Y: 200 &nbsp;&nbsp; Z: 5 &nbsp;&nbsp; E: 25</td></tr>
 <tr><td><strong>Max Acceleration (mm/s²)</strong></td><td>X/Y: 1000 &nbsp;&nbsp; Z: 100 &nbsp;&nbsp; E: 10000</td></tr>
-<tr><td><strong>Build Volume</strong></td><td>220 × 220 × 230 mm</td></tr>
+<tr><td><strong>Build Volume</strong></td><td>310 × 310 × 230 mm</td></tr>
 </table>
 
 <hr>
@@ -338,7 +340,8 @@ This firmware defines how the printer moves, heats, homes, and communicates. Bel
 
 <ol>
 <li>Connect the <strong>Arduino Mega 2560</strong> to your computer via USB.</li>
-<li>Open the <code>Marlin.ino</code> file in the Arduino IDE (or use <strong>PlatformIO</strong> in VS Code).</li>
+<li>Download <a href="https://github.com/MarlinFirmware/Marlin/tree/2.1.2">Marlin 2.1.2</a> and copy the four files from <code>firmware/</code> into its <code>Marlin/</code> folder, replacing the originals.</li>
+<li>Open <code>Marlin.ino</code> in the Arduino IDE (or use <strong>PlatformIO</strong> in VS Code).</li>
 <li>Select the correct board and port:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;• Tools → Board → <em>Arduino Mega or Mega 2560</em><br>
 &nbsp;&nbsp;&nbsp;&nbsp;• Tools → Port → (your COM port)</li>
@@ -348,13 +351,13 @@ This firmware defines how the printer moves, heats, homes, and communicates. Bel
 </ol>
 
 <p align="center">
-The custom <strong>Marlin Firmware</strong> for the <em>Happy Toaster</em> 3D Printer is located in:<br/><br/>
-<code>Marlin-2.1.2/</code>
+The <strong>Marlin configuration</strong> for the <em>Happy Toaster</em> 3D Printer is located in:<br/><br/>
+<code>firmware/</code>
 </p>
 
 <p align="center">
-Inside, you'll find the complete configuration used for this build.<br/>
-It’s ready to compile and flash using the <strong>Arduino IDE</strong> or <strong>PlatformIO</strong> on the <strong>Arduino Mega 2560 + RAMPS 1.4</strong> board.
+Inside, you'll find the configuration used for this build and a list of every change from stock.<br/>
+Drop it into Marlin 2.1.2 to compile and flash using the <strong>Arduino IDE</strong> or <strong>PlatformIO</strong> on the <strong>Arduino Mega 2560 + RAMPS 1.4</strong> board.
 </p>
 
 <p align="center"><em>After successful flashing, your machine should display the custom boot screen and all configured settings can be verified from the LCD under <strong>Control → Motion</strong>.</em></p>
